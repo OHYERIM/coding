@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*{background-color: rgb(253, 250, 232);}
+    h2{background-color: wheat;text-align-last: center;} 
+    h5{text-align: center;}
+    #boardWrap{position:relative; width: auto; margin: auto;} 
+    td{text-align: center;} nav{text-align: right;}
+    .button1{background-color: rgb(240, 233, 140);} 
+    .button2{background-color: gray;}
+    .th1{text-align: left;} .td1{text-align: right;}
+    .line{border-bottom: 1px solid black;}
+    #line2{border-bottom: 1px solid black;}
+    </style>
+    
+</head>
+<body>
+    <h2>게시판</h2><hr size="2" color="black">
+    <table border="0" width="100%">
+        <tr>
+            <th class="th1">▷ 총 3개의 게시물이 있습니다.</th>
+            <td class="td1">
+            </td>
+            <td class="td1">
+                SELECT &nbsp;<select><option value="제목">제목</option><option value="글쓴이">글쓴이</option><option value="내용">내용</option></select>
+                &nbsp;<input type="search">&nbsp;</input><button class="button2">검색</button></td>
+        </tr>
+    </table>
+    <div>
+    <table id="table" border="0" width="100%">
+        <thead>
+            <tr>
+                <th scope="col" class="line"><div style="background-color: rgb(247, 216, 229)">번호</th>
+                <th scope="col" class="line"><div style="background-color: darkseagreen;">제목</th>
+                <th scope="col" class="line"><div style="background-color: rgb(247, 216, 229)">글쓴이</th>
+                <th scope="col" class="line"><div style="background-color: darkseagreen;">일시</th>
+                <th scope="col" class="line"><div style="background-color: rgb(247, 216, 229)">조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line">1</td>
+                <td class="목록" id="line2"><a href="#">게시글1입니다.</a></td>
+                <td class="line">김준석</td>
+                <td class="line">2022-05-16</td>
+                <td class="line">15</td>
+            </tr>
+            <tr>
+                <td class="line">2</td>
+                <td class="목록" id="line2"><a href="#">게시글2입니다.</a></td>
+                <td class="line">김준석</td>
+                <td class="line">2022-05-16</td>
+                <td class="line">15</td>
+            </tr>
+            <tr>
+                <td class="line">3</td>
+                <td class="목록" id="line2"><a href="#">게시글3입니다.</a></td>
+                <td class="line">김준석</td>
+                <td class="line">2022-05-16</td>
+                <td class="line">15</td>
+            </tr>
+        </tbody>
+        </table>
+        <div>
+        <footer><h5>◀이전 ┃ 다음▶</h5></button></footer> <footer><nav><button class="button1">목록</button>&nbsp;<button class="button2">글쓰기</button></footer>
+</body>
+</html>

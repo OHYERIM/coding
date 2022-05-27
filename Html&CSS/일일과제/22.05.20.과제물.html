@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { margin: 0; padding: 0 15px;}
+        .board_1 { 
+        background: #efefef;
+        border-top: 3px solid gray; 
+        padding: 10px;  
+        display: flex;
+        justify-content: space-between;
+        }
+        .column{
+        display: flex;
+        flex-direction: column;
+        padding: 20px; 
+        border-bottom: 1px solid gray;
+        } 
+        .comment {
+        display: flex;
+        justify-content: flex-end;
+        background: #efefef;
+        padding: 20px; 
+        }
+        table{display:flex; border: 0px solid black; border-collapse: collapse;}
+        .div{display: flex; justify-content: flex-end;}
+        .big_button{background-color: black; color: beige;}
+        .button1{background-color: rgb(236, 233, 60); color: black; border-radius:5px 5px 5px 5px; box-shadow: 3px 3px 3px gray;}
+        .button1:hover{background-color: rgb(243, 37, 10); color: black;}
+        .button2{background-color: rgb(35, 127, 233); color: beige; border-radius:5px 5px 5px 5px; box-shadow: 3px 3px 3px gray;}
+        .button2:hover{background-color: rgb(243, 37, 10); color: black;}
+        .button3{background-color: rgb(35, 127, 233); color: beige; border-radius:5px 5px 5px 5px; box-shadow: 3px 3px 3px gray;}
+        .button3:hover{background-color: rgb(243, 37, 10); color: black;}
+    </style>
+</head>
+<body>
+    <h1>게시판</h1>
+
+    <table>
+        <tbody>
+            <div class="board_1">
+                <span>   게시글 1 입니다.  </span>
+                <span>  김준석│조회:15│2022-05-16(09:00) </span> 
+               </div>
+               <div class="column">
+                   <span> 게시판 3가지 만들기 끝났습니다! </span>
+                   <span> 게시판 3가지 만들기 끝났습니다! </span>
+                   <span> 게시판 3가지 만들기 끝났습니다! </span>
+                   <span> 게시판 3가지 만들기 끝났습니다! </span>
+                   <span> 게시판 3가지 만들기 끝났습니다! </span>
+               </div>
+               
+        </tbody>
+    </table>
+    <form>
+        <div class="comment">
+            <textarea name="comment" cols="100" rows="6"></textarea>
+            &nbsp;&nbsp;<input type="button" value="덧글쓰기" class="big_button">    
+        </div>
+    </form>
+    <br><form>
+    <div class="div">
+        <input type="button" value="삭제" class="button1">
+        &nbsp;<input type="button" value="목록" class="button2">           
+        &nbsp;<input type="button" value="글쓰기" class="button3">         
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<head>		
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Script-Type" content="text/javascript">
+	<meta http-equiv="Content-Style-Type" content="text/css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+	<meta name="format-detection" content="telephone=no">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="올리브영 공식 온라인몰">
+	<meta property="og:url" content="https://www.oliveyoung.co.kr/store/main/main.do"> 
+	<meta property="og:image" content="">
+	<meta property="og:description" content="대한민국 NO.1 헬스&amp;뷰티 스토어 OLIVEYOUNG">
+	<title>올리브영</title>
+	<meta name="title" content="올리브영 온라인몰">
+	<meta name="description" content="대한민국 NO.1 헬스&amp;뷰티 스토어 OLIVEYOUNG">
+	<style media="" data-href="https://www.oliveyoung.co.kr/pc-static-root/css/style.css?dumm=202205200005">
+
+		/* 컨텐츠 part2부분 */
+		*{margin:0px; padding:0;}
+        img{max-width: 150%;
+            height:auto!important;
+            }
+
+		/* 오직 올리브영에서만 */
+		.body1{margin: 0;width: 2300px; height:400px;
+                display:grid;
+			    background-image:url(https://image.oliveyoung.co.kr/uploads/contents/main/00_Main_onlyone_BG.jpg)!important;
+                }
+
+        article{display:inline; padding: 30px 100px 30px 100px; text-align: center;}
+ 
+		.container1{margin: 30px 150px 30px 150px;
+                    display: grid;
+                    max-width: 2000%;
+					background: white;}
+
+        section{display: flex; 
+                flex-direction: row;
+                flex-wrap: nowrap; 
+                justify-content: space-around; 
+                }              
+
+        .강다니엘배너{display:flex;
+                     flex-basis: 33.3%;
+                     object-fit: cover;
+                    }
+
+        .box1{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 500px; 
+             height: 50px;
+             top: 80%;
+             left: -35%; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:white;}               
+
+        .채소배너{display:flex;
+                 flex-basis: 33.3%;
+                 object-fit: cover;}
+
+
+        .box2{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 500px; 
+             height: 50px;
+             top: 80%;
+             left: -35%; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:white;}
+
+
+        .달고나배너{display:flex;
+                 flex-basis: 33.3%;
+                 object-fit: cover;}
+
+
+        .box3{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 500px; 
+             height: 50px;
+             top: 80%;
+             left: -35%; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:white;}
+        
+
+        /* button{display: block;
+               appearance: auto;
+                font-family: Montserrat,-apple-system,NotoSansCJKkr,
+                AppleSDGothicNeo,Roboto,sans-serif;
+                font-weight: 700;
+                border: 0;
+                padding: 0;
+                box-shadow: none;
+                cursor: pointer;
+                text-align: center;} */
+                            
+		.button1{display:inline; 
+                 width: 20px; height: 20px;
+			     background: none; border-radius:8px 8px 8px 8px; border: 0;
+                 float:right;}
+
+		.button1:hover{background: black; color: white;}
+
+
+		/* 이 상품 어때요? */
+        .body2{margin: 0; display:grid; justify-content: baseline;
+			   background-color:  antiquewhite;
+               background-size: cover;        
+            }
+		.container2{margin: 30px 150px 30px 150px;
+                    display: grid;}
+        
+        #new h2{margin: 10px;
+                padding-bottom: 5px;
+                border-bottom: solid 1px gray;}
+
+        #new .button_next1{position: relative;
+                            top: -160px;
+                            left: -310px;
+                            margin-top: -180px;
+                            z-index: 2;
+                            background-position: 0 0;}
+
+        #new .botton_next2{position: relative;
+                            top: -360px;
+                            right: -310px;
+                            margin-top: -180px;
+                            z-index: 2;
+                            background-position: 0 0;}
+
+        #new .item{float:left;
+                   margin-top: 20px;
+                   text-align: center;}
+
+        #new .item .icon1{
+                        background: white;
+                        box-sizing: border-box;
+                        border-radius:100px 100px 100px 100px; 
+                        border: 3px solid crimson; 
+                        display:before;
+                        margin:0 auto;
+                        padding: 10px 10px;
+                        position: relative;
+                        width: 70px; 
+                        height: 70px;
+                        top: -470px;
+                        left: -130px;
+                        z-index:1;
+                        text-align: center;
+                        font-weight:bold;color:crimson; font-size: 13px;}   
+        
+        #new .item .icon1-2{background: white;
+                        box-sizing: border-box;
+                        border-radius:100px 100px 100px 100px; 
+                        border: 3px solid crimson;
+                        display:before;
+                        margin:0 auto;
+                        padding: 10px 10px;
+                        position: relative;
+                        width: 70px; 
+                        height: 70px;
+                        top: -470px;
+                        left: -130px; 
+                        z-index:1;
+                        text-align: center;
+                        font-weight:bold;color:crimson; font-size: 13px;}                  
+
+        #new .item .icon1-3{background: white;
+                        box-sizing: border-box;
+                        border-radius:100px 100px 100px 100px; 
+                        border: 3px solid crimson;
+                        display:before; 
+                        margin:0 auto;
+                        padding: 10px 10px;
+                        position: relative;
+                        width: 70px; 
+                        height: 70px;
+                        top: -470px;
+                        left: -130px; 
+                        z-index:1;
+                        text-align: center;
+                        font-weight:bold;color:crimson; font-size: 13px;}  
+  
+                       
+        #new .item .icon2{display:before;
+                          background: ghostwhite;
+                          border: 1px solid gray; 
+                          width: 40px;
+                          height: 40px;
+                          margin:0 auto;
+                          padding: 10px 10px;
+                          position: relative;
+                          top: -279px; left: 150px;
+                          z-index: 1;}
+        .icon2:hover{color: hotpink;}
+
+        #new .item .icon2-2{display:before;
+                          background:  ghostwhite;
+                          border: 1px solid gray; 
+                          width: 40px;
+                          height: 40px;
+                          margin:0 auto;
+                          padding: 10px 10px;
+                          position: relative;
+                          top: -266px; left: 150px;
+                          z-index: 1;}    
+        .icon2-2:hover{color: hotpink;}
+                          
+        #new .item .icon2-3{display:before;
+                          background:  ghostwhite;
+                          border: 1px solid gray; 
+                          width: 40px;
+                          height: 40px;
+                          margin:0 auto;
+                          padding: 10px 10px;
+                          position: relative;
+                          top: -266px; left: 150px;
+                          z-index: 1;}
+        .icon2-3:hover{color: hotpink;}
+
+        #new .item .icon2-4{display:before;
+                          background:  ghostwhite;
+                          border: 1px solid gray; 
+                          width: 40px;
+                          height: 40px;
+                          margin:0 auto;
+                          padding: 10px 10px;
+                          position: relative;
+                          top: -196px; left: 149px;
+                          z-index: 1;}
+        .icon2-4:hover{color: hotpink;}
+
+        #new .icon_flag{box-sizing: border-box;
+                        text-align: center;}
+
+        #new .icon_flag .sale{border: 0 solid;
+                              border-radius: 5px 5px 5px 5px;
+                              background-color: #f65c60; 
+                              color: white;
+                              font-size: 20px;}
+
+
+        #new .icon_flag .gift{border: 0 solid; 
+                              border-radius: 5px 5px 5px 5px;
+                              background-color: #6fcff7;
+                              color: white;
+                              font-size: 20px;}
+
+
+        #new .icon_flag .delivery{border: 0 solid;
+                                  border-radius: 5px 5px 5px 5px; 
+                                  width: 60px;
+                                  background-color: #f374b7;
+                                  color: white;
+                                  font-size: 20px;}
+
+
+        #new .subject{margin-top: 10px;
+                      color: darkslategrey; font-weight: bold;}
+                      
+        #new .commet{margin-top: 5px;
+                     color:black;}
+
+        #new .price{margin: 5px; color: gray; font-size: 20px; }
+
+        #new .sale{margin: 5px; color: crimson; font-size:30px; font-weight: bold;}
+
+        
+
+
+		/* Healthy Life */
+        .body3{margin: 0; 
+               display:grid;
+               justify-content: center;
+			   background-color: antiquewhite;}
+
+		.container3{margin: 30px 0px 30px 0px;
+                    display: grid; }
+
+
+        .img{object-fit: cover;
+            clip-path: polygon(20% 0%, 80% 0%, 98% 19%, 97% 81%, 80% 100%, 20% 100%, 3% 80%, 3% 19%);
+            }              
+
+        .box4{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 300px; 
+             height: 50px;
+             bottom: 0px;
+             left: 0px; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:none;}
+
+             .box5{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 300px; 
+             height: 50px;
+             bottom: 0px;
+             left: 0px; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:none;}
+
+
+             .box6{display:before;
+             margin:0 auto;
+             padding: 30px 30px;
+             position: relative;
+             width: 300px; 
+             height: 50px;
+             bottom: 0px;
+             left: 0px; 
+             z-index:1;
+             vertical-align: middle;
+             border:0; background-color:none;}
+
+
+
+	</style>
+
+
+<body>
+	<!-- 오직 올리브영에서만 -->
+    <div class="body1">
+    <article>
+        <div>
+            <a href="https://www.oliveyoung.co.kr/store/main/getOnlyOneList.do">
+                EXCLUSIVE <span h2>오직 올리브영에서만</h2></span></a>
+        <span><input type="button" value="2" class="button1" style="margin: 0px 150px 0px 0px;"></span>
+        <span><input type="button" value="1" class="button1"></span>
+        </div>
+        <div class="container1">
+        <section>
+            <div class="강다니엘배너">
+                <span ><img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/6748796572686939943.jpg"></span>
+                <div class="box1">
+                  <h3>바이오힐보X강다니엘👑</h3>금액대별 정품 증정까지!
+                </div>
+            </div>
+            
+            <div class="채소배너">
+                <span><img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/805094447780593267.jpg"></span> 
+                <div class="box2">
+                <h3>웨이크메이크X채소</h3>초특가&선착순증정까지!
+            </div>
+            </div>
+                    
+            <div class="달고나배너">
+                <span><img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/8375225260508821294.jpg"></span>
+                <div class="box3">
+                    <h3>화제의 콜라보 굿즈세트</h3>+달고나 스마트톡 증정!
+                </div>
+            </div>
+        </section>     
+        </div>
+    </article>
+
+    <div></div>
+    <!-- 이 상품 어때요? -->
+    <div class="body2">
+    <article>
+        <div class="container2">
+        <div id="new">
+            <h2>이 상품 어때요?
+            <span><input type="button" value="3" class="button1"></span>
+            <span><input type="button" value="2" class="button1"></span>
+            <span><input type="button" value="1" class="button1"></span>
+            </h2>
+            <section>
+            <span class="item">
+                    <span>
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016200913ko.jpg?l=ko"
+                         style="max-width: 90%; height:auto!important;">
+                    </span>
+                    <div>
+                        <input type="button" value="◂" class="button_next1" style="width: 40px; height:40px; border-radius: 30px 30px 30px 30px; background-color: lightslategrey;">
+                    
+                <span class="subject">헉슬리</span>
+                <div class="comment">헉슬리 퍼퓸 15ml<br/> 3종 중 택1</div>
+                <div>
+                    <span class="price"><del>48,000원</del></span><span class="sale">39,800원</span>
+                </div>
+
+                <span class="icon_flag">
+                    <span class="sale">세일</span>
+                    <span class="gift">증정</span>
+                    <span class="delivery">오늘드림</span>
+                    </span>   
+                
+                
+                <div class="icon1" style="line-height: 45px;">베스트</div>
+                <div class="icon2" style="font-size: 30px;">♡</div>
+            </div>
+
+            </span>
+            
+            <span class="item">
+                <span>
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016557901ko.jpg?l=ko"
+                              style="max-width: 90%; height:auto!important;"></span>
+                <div></div>
+                <span class="subject">질레트</span>
+                <div class="comment">질레트 닥터스트레인지 <br/>프로글라이드 파워 한정기획</div>
+                <div>
+                    <span class="price"><del>29,9000원</del></span><span class="sale">25,900원</span>
+                </div>
+                <span class="icon_flag">
+                    <span class="sale">세일</span>
+                    <span class="gift">증정</span>
+                    <span class="delivery">오늘드림</span>
+                </span>
+                <div class="icon1-2" style="line-height: 45px;">베스트</div>
+                <div class="icon2-2" style="font-size: 30px;">♡</div>
+
+            </span>
+     
+            <span class="item">
+                <span>
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016589603ko.jpg?l=ko"
+                         style="max-width: 90%; height:auto!important;">
+                </span>
+                <div></div>
+                <span class="subject">바비브라운</span>
+                <div class="comment">[1+1기획] 바비브라운 <br/>엑스트라 립 틴트 기획 3종</div>
+                <div>
+                <span class="sale">44,000원</span>
+                </div>
+                <span class="icon_flag">
+                    <span class="gift">증정</span>
+                    <span class="delivery">오늘드림</span>
+                </span>
+                <div class="icon1-3" style="line-height: 45px;">베스트</div>
+                <div class="icon2-3" style="font-size: 30px;">♡</div>
+
+            </span>
+
+            <span class="item">
+                <span>
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016651902ko.jpeg?l=ko"
+                         style="max-width: 90%; height:auto!important;">
+                </span>
+
+                <div></div>
+                <span class="subject">꼬달리</span>
+                <div class="comment">[1+1증정] 꼬달리 <br/>핸드 앤 립 듀오</div>
+                <div>
+                <span class="sale">44,000원</span>
+                </div>
+                <span class="icon_flag">
+                    <span class="gift">증정</span>
+                    <span class="delivery">오늘드림</span>
+                    </span>
+                <div class="icon2-4" style="font-size: 30px;">♡</div> 
+
+                <div>
+                <span>
+                    <input type="button" value="▸" class="botton_next2" style="width: 40px; height:40px; border-radius: 30px 30px 30px 30px; background-color: lightslategrey;">
+                </span>
+            </div>
+            </span>
+        </section>
+            </div> 
+        </div>  
+    </article>
+    </div>
+
+
+    <div></div>
+    <!-- Healthy Life -->
+    <div class="body3">
+    <article>
+            <h2><b>Healthy LIFE<b></h2>
+                <div>
+                    <!-- <input type="button" value="◂" class="button_next1"> -->
+                </div>
+                <!-- <div><button type="button" data-role="none" 
+		                     aria-label="Previous" role="button" 
+                             style="display: block;">◂</button></div> -->
+
+                             <div class="container3">
+                             <section>
+
+                                <span>
+                                    <input type="button" value="◂" class="button_next1" style="width: 40px; height:40px; border-radius: 30px 30px 30px 30px; background-color: lightslategrey;">
+                                </span>
+
+                             <div>
+                                <span>
+                                <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/6920789122630632278.png"> 
+                                </span>
+                                <p class="box4">
+                                    <strong class="title">국대 장은실선수의 건강루틴</strong>
+                                    <span>17년차 레슬러가 추천하는 <br>건강관리 아이템 소개합니다 </span>
+                                </p>
+                             </div> 
+                             
+                             <div>
+                                <span>
+                                <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/160095388447261047.jpg">
+                                </span>
+                                <p class="box5">
+                                    <strong class="title">노윤주 아나운서의 이너뷰티</strong>
+                                    <span>스포츠에 진심인 골때녀키퍼 <br>노윤주의 건강루틴 소개합니다</span>
+                                </p>
+                             </div>
+
+                             <div>
+                               <span>
+                                <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/4762393897941695301.jpg">
+                                </span>
+                                <p class="box6">
+                                    <strong class="title">청년도배사 추천 클렌징</strong>
+                                    <span>유퀴즈 출연 청년도배사의  <br>현장 속 아이템 소개합니다 </span>
+                                </p>
+                             </div>
+
+                             <span>
+                             <input type="button" value="▸" class="button_next2" style="width: 40px; height:40px;  border-radius: 30px 30px 30px 30px; background-color: lightslategrey;">
+                             </span>
+
+                            </div>   
+                            </div> 
+                            </section>                                       
+                            </div>
+                </div>
+            
+
+    </article>
+</div>
+        </body>
+        </html>
