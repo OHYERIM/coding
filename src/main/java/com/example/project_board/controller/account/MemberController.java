@@ -1,10 +1,7 @@
 package com.example.project_board.controller.account;
 
-import com.example.project_board.entity.board.Board;
 import com.example.project_board.entity.account.Member;
 import com.example.project_board.service.account.MemberService;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,15 +47,21 @@ public class MemberController {
 
     @PostMapping("/updateAccount")
     public String updateAccount (Member member){
+        System.out.println(member.getEmail());
+        System.out.println(member.getId());
+        System.out.println(member.getSeq());
         memberService.updateMember(member);
         return "redirect:/account/getAccountList";
     }
 
-    @PostMapping("/deleteAccount")
+    @GetMapping("/deleteAccount")
     public String deleteAccount (Member member){
+        System.out.println("-----delete");
+        System.out.println(member.getSeq());
         memberService.deleteMember(member);
         return "redirect:/account/getAccountList";
     }
+
 
     //deleteAccount : 회원정보 삭제
 
