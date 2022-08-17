@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang= "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>회원정보 찾기</title>
+    <meta charset="UTF-8">
+    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+</head>
+<body th:align="center">
+<h1>회원정보 찾기</h1>
+<!--    회원정보 같은 민감 데이터는 가능한 암호화의 숨김 코드로 작성이 필요-->
+<hr>
+<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+    <!--    <tr th:each="member : ${memberList}">-->
+    <!--      <td bgcolor="orange" th:text="번호" width="80"></td>-->
+    <td th:text="${member.seq}"></td>
+    <td th:text="${member.id}"></td>
+    <td th:text="${member.email}"></td>
+    </tr>
+
+    <button><a href="http://localhost:9090">메인홈</a></button>
+
+</table>
+</body>
+</html>

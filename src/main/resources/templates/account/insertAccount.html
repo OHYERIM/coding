@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/account/insertAccount}" method="post">
+    <table th:align="center" border="1" cellpadding="0" cellspacing="0">
+        <tr>
+            <td bgcolor="orange" th:text="ID" width="80"></td>
+            <td><input type="text" name="id" th:placeholder="ID" size="50"></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="Password"></td>
+            <td><input type="text" name="password" th:placeholder="PASSWORD" size="50"></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="email"></td>
+            <td><input type="text" name="email" th:placeholder="email" size="50"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <input type="submit" value="가입">
+                <button><a href="http://localhost:9090">메인홈</a></button>
+            </td>
+        </tr>
+        <!--
+         [클라이언트]name='title' 은 서버에서 데이터 매개변수를 받기 위한 변수명(key)
+         -->
+    </table>
+</form>
+</body>
+</html>

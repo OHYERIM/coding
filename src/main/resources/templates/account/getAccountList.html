@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>getAccountList</title>
+</head>
+<body th:align="center">
+<table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
+    <tr>
+        <th bgcolor="orange" border="1px" width="100">번호</th>
+        <th bgcolor="orange" width="100">ID</th>
+        <!--      <th bgcolor="orange" width="100">PASSWORD</th>-->
+        <th bgcolor="orange" width="100">email</th>
+        <th bgcolor="orange" width="100">상세정보</th>
+    </tr>
+    <tr th:each="member : ${memberList}">  <!-- 컨트롤러에서 추가-->
+        <td th:text="${member.seq}"></td>
+        <td><a th:text="${member.id}"></a></td>
+        <!--      <td th:text="${member.password}"></td>-->
+        <td th:text="${member.email}"></td>
+        <!--      <td th:text="${member.passsword}"></td>-->
+        <!--      account/getAccountList에서 get Account 호출할 때
+                    기본 시작점이 templates이기 떄문에
+                    절대 경로일 경우 template에서 시작하며, 상대경로이면 getAccountList페이지가 있는 폴더에서 시작
+                    /를 앞에 붙인 경우    : 절대경로
+                    /를 앞에 안 붙인 경우 : 상대경로 -->
+        <td>
+            <a th:href="@{/account/getAccount(seq=${member.seq})}">
+                <button>상세정보</button></a>
+        </td>
+        <!--      <td>-->
+        <!--          <button><a th:href="@{/account/deleteAccount(seq=${member.seq})}">t삭제</a></button>-->
+        <!--      </td>-->
+        <td>
+            <a th:href="@{/account/deleteAccount(seq=${member.seq})}">
+                <button>삭제</button></a>
+        </td>
+    </tr>
+    <button><a href="http://localhost:9090">메인홈</a></button>
+</table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang= "en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>회원정보 상세</title>
+    <meta charset="UTF-8">
+    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+</head>
+<body th:align="center">
+<h1>회원정보 상세</h1>
+<!--    회원정보 같은 민감 데이터는 가능한 암호화의 숨김 코드로 작성이 필요-->
+<hr>
+<form th:action="@{/account/updateAccount}" method="post">
+    <input name="seq" type="hidden" th:value="${member.seq}">
+    <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <td bgcolor="orange" th:text="번호" width="80"></td>
+            <td th:text="${member.seq}"></td>
+        </tr>
+        <!-- 왜 ${member.~} 로 쓰는지 알기-->
+        <tr>
+            <td bgcolor="orange" th:text="ID" width="80"></td>
+            <!--
+                [서버]에서 java의 데이터를 [클라이언트]html문서에 값을 할당해주는 문법 ${title}
+            -->
+            <td><input name="id" type="text" th:value="${member.id}"></td>
+        </tr>
+        <tr>
+            <td bgcolor="orange" th:text="email"></td>
+            <td th:text="${member.email}"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"></td>
+            <input type="submit" value="회원정보 수정">
+        </tr>
+        <button><a href="http://localhost:9090">메인홈</a></button>
+
+    </table>
+</form>
+</body>
+</html>
