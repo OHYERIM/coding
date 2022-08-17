@@ -12,11 +12,6 @@ import java.util.List;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-//    private final BoardRepository boardRepo;
-//
-//    @Autowired
-//    protected BoardServiceImpl(BoardRepository boardRepo) {this.boardRepo = boardRepo;}
-
     @Autowired
     private BoardRepository boardRepo;
     //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시

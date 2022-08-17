@@ -12,6 +12,6 @@ public class InitController {
     @GetMapping("hello")
     public String hello(Model model) {
         model.addAttribute("introduce", "hello!!");
-        return "init";
+        return "/board/init";
     }
 }

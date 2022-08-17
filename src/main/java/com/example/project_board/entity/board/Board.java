@@ -18,9 +18,6 @@ public class Board {
     @Id @GeneratedValue
     private Long seq;
 
-//    @Column(nullable = false)
-//    private String category;
-
     //@Column은 title 필드값을 컬럼화할 때 길이와 null 입력 가능여부 옵션
     @Column(length = 40, nullable = false)
     private String title;

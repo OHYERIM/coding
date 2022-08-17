@@ -7,14 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping(path = "/board")
 public class BoardController {
 
     @Autowired
@@ -30,7 +28,6 @@ public class BoardController {
 
     @GetMapping("/insertBoard")
     public String insertBoardView() {
-
         return "/board/insertBoard";
     }
 
@@ -54,10 +51,9 @@ public class BoardController {
         return "/board/getBoard";
     }
 
-    @PostMapping("/updateBoard")
+    @PostMapping ("/updateBoard")
     public String updateBoard(Board board) {
         boardService.updateBoard(board);
-//        return "redirect:/board/getBoardList";
         return "redirect:/board/getBoard?seq="+board.getSeq();
     }
 

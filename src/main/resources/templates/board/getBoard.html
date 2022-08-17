@@ -1,112 +1,68 @@
-<!--예림-->
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--        <link rel="stylesheet" href="/css/getBoard.css">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<h1 th:align="center">게시글 상세</h1>-->
-<!--<form th:action="@{updateBoard}" method="post">-->
-<!--    &lt;!&ndash;    //name이 중요함. 왜냐하면, name으로 지정한 key값으로 인식하기 때문에&ndash;&gt;-->
-<!--    <input name="seq" type="hidden" th:value="${seq}">-->
-<!--    <table id="table_02" th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">-->
-<!--        <tr>-->
-<!--            <th th:text="카테고리" width="60"></th>-->
-<!--            <td align="left">-->
-<!--                <select name="category" title="2">-->
-<!--                    <option th:text="${category}" selected></option>-->
-<!--                    <option value="상품">상품</option>-->
-<!--                    <option value="배송">배송</option>-->
-<!--                    <option value="기타/문의">기타/문의</option>-->
-<!--                </select>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="번호"></th>-->
-<!--            <td th:text="${seq}"></td>-->
-<!--            &lt;!&ndash;        <td inut name ="seq" type= "text" th:value="${seq}"></td>&ndash;&gt;-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="제목" width="80"></th>-->
-<!--            &lt;!&ndash;-->
-<!--                [서버]에서 java의 데이터를 [클라이언트]html문서에 값을 할당해주는 문법${title}-->
-<!--            &ndash;&gt;-->
-<!--            <td><input name="title" type="text" th:value="${title}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="작성자"></th>-->
-<!--            <td th:text="${writer}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="내용"></th>-->
-<!--            <td><textarea name="content" th:text="${content}" cols="40" rows="10"></textarea></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="등록일"></th>-->
-<!--            <td th:text="${createDate}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <th th:text="조회수"></th>-->
-<!--            <td th:text="${cnt}"></td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td colspan="2">-->
-<!--                <div style="text-align: center;">-->
-<!--                    <input type="submit" value="수정"/>-->
-<!--                </div>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</form>-->
-<!--<button class="w-btn-outline w-btn-green-outline" type="button"><a th:href="@{/insertBoard}">글등록</a></button>-->
-<!--&nbsp;-->
-<!--<button class="w-btn-outline w-btn-red-outline" type="button"><a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a></button>-->
-<!--&nbsp;-->
-<!--<button class="w-btn-outline w-btn-yellow-outline" type="button"><a th:href="@{/getBoardList}">글목록</a></button>-->
-<!--</body>-->
-<!--</html>-->
-
-
-<!--인국님-->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/document.css">
-    <link rel="stylesheet" href="/css/comment.css">
-    <title>게시 글 상세</title>
+        <link rel="stylesheet" href="/css/getBoard.css">
+    <title>Title</title>
 </head>
 <body>
 <h1 th:align="center">게시글 상세</h1>
-<main>
-    <div class="row">
-<!--        <div class="category" th:text="${board.category}">카테고리</div>-->
-        <div class="title" th:text="${board.title}">제목입니다</div>
-    </div>
-    <div class="row between">
-        <div class="name fl" th:text="${board.writer}">글쓴이</div>
-        <div class="fr">
-<!--            <div class="date fl" th:text="${board.createDate}">2022-08-09</div>-->
-            <div class="cnt fl" th:text="${board.createDate}">
-                <b>조회 수</b>
-                <span th:text="${board.cnt}">12</span>
-            </div>
-        </div>
-    </div>
-    <article class="content" th:text="${board.content}"></article>
-    <div class="row between">
-        <a class="btn back fl" th:href="@{/board/getBoardList}"></a>
-        <div class="row fr gap">
-            <a class="btn write fl" th:href="@{/board/updateBoard(seq=${board.seq})}"></a>
-            <form class="fl" action="deleteBoard" method="post">
-                <input type="hidden" name="seq" th:value="${board.seq}">
-                <button class="btn delete" onclick="this.submit()"></button>
-            </form>
-        </div>
-    </div>
-</main>
+<form th:action="@{updateBoard}" method="post">
+    <!--    //name이 중요함. 왜냐하면, name으로 지정한 key값으로 인식하기 때문에-->
+    <input name="seq" type="hidden" th:value="${seq}">
+    <table id="table_02" th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
+        <tr>
+            <th th:text="카테고리" width="60"></th>
+            <td align="left">
+                <select name="category" title="2">
+                    <option th:text="${category}" selected></option>
+                    <option value="상품">상품</option>
+                    <option value="배송">배송</option>
+                    <option value="기타/문의">기타/문의</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th th:text="번호"></th>
+            <td th:text="${seq}"></td>
+            <!--        <td inut name ="seq" type= "text" th:value="${seq}"></td>-->
+        </tr>
+        <tr>
+            <th th:text="제목" width="80"></th>
+            <!--
+                [서버]에서 java의 데이터를 [클라이언트]html문서에 값을 할당해주는 문법${title}
+            -->
+            <td><input name="title" type="text" th:value="${title}"></td>
+        </tr>
+        <tr>
+            <th th:text="작성자"></th>
+            <td th:text="${writer}"></td>
+        </tr>
+        <tr>
+            <th th:text="내용"></th>
+            <td><textarea name="content" th:text="${content}" cols="40" rows="10"></textarea></td>
+        </tr>
+        <tr>
+            <th th:text="등록일"></th>
+            <td th:text="${createDate}"></td>
+        </tr>
+        <tr>
+            <th th:text="조회수"></th>
+            <td th:text="${cnt}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div style="text-align: center;">
+                    <input type="submit" value="수정"/>
+                </div>
+            </td>
+        </tr>
+    </table>
+</form>
+<button class="w-btn-outline w-btn-green-outline" type="button"><a th:href="@{/insertBoard}">글등록</a></button>
+&nbsp;
+<button class="w-btn-outline w-btn-red-outline" type="button"><a th:href="@{/deleteBoard(seq=${seq})}">글삭제</a></button>
+&nbsp;
+<button class="w-btn-outline w-btn-yellow-outline" type="button"><a th:href="@{/getBoardList}">글목록</a></button>
 </body>
 </html>
