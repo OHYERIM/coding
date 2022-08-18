@@ -1,5 +1,6 @@
 package com.example.project_board.entity.account;
 
+import com.example.project_board.entity.base.BaseTimeEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,7 +13,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter // 이거때문에 문제 생김
-public class Member {
+public class Member extends BaseTimeEntity {
 
     //SELECT [*컬럼명=객체의 필드] FROM TABLE_NAME=객체;
     //CREATE TABLE (
@@ -35,12 +36,13 @@ public class Member {
     @Column(nullable = false)
     private String email;
 
-    @Setter
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-
-    @Setter
-    @Temporal(TemporalType.DATE)
-    private Date updateDate;
+    //2022.08.18 BaseTimeEntity라는 추상클래스에서 상속을 받아 사용하기 위해 날린 것.
+//    @Setter
+//    @Temporal(TemporalType.DATE)
+//    private Date createDate;
+//
+//    @Setter
+//    @Temporal(TemporalType.DATE)
+//    private Date updateDate;
 
 }

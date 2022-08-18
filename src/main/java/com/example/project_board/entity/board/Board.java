@@ -1,5 +1,6 @@
 package com.example.project_board.entity.board;
 
+import com.example.project_board.entity.base.BaseTimeEntity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -11,7 +12,7 @@ import java.util.Date;
 @ToString
 @Entity
 @Setter
-public class Board {
+public class Board extends BaseTimeEntity {
 
     //@Id : PK (primary key) SQL문의 기본키
     //@GeneratedValue 자동생성 속성
@@ -33,9 +34,10 @@ public class Board {
     @ColumnDefault("'no content'")
     private String content;
 
-    //타입이 날짜
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
+    //2022.08.18 BaseTimeEntity라는 추상클래스에서 상속을 받아 사용하기 위해 날린 것.
+//    //타입이 날짜
+//    @Temporal(TemporalType.DATE)
+//    private Date createDate;
 
     @ColumnDefault("0")
     @Column(insertable = false, updatable = false)
