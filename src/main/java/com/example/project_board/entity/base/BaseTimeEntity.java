@@ -14,6 +14,7 @@ import java.util.Date;
 @MappedSuperclass
 public abstract class BaseTimeEntity {
 
+
     @CreatedDate
     private Date createDate;
 

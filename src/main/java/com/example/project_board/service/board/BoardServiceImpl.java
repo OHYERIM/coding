@@ -32,6 +32,8 @@ public class BoardServiceImpl implements BoardService {
     //DB에 저장 (저장하는 SQL문 만들어서 실행)
     @Override
     public void insertBoard(Board board) {
+        System.out.println("들어감");
+        System.out.println(board);
         boardRepo.save(board);
     }
 
@@ -43,9 +45,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void updateBoard(Board board) {
         Board findBoard = boardRepo.findById(board.getSeq()).get();
-//        findBoard.setTitle(board.getCategory());
+        findBoard.setCategory(board.getCategory());
         findBoard.setTitle(board.getTitle());
         findBoard.setContent(board.getContent());
+        System.out.println(findBoard);
         boardRepo.save(findBoard);
     }
 

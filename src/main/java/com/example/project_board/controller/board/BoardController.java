@@ -37,7 +37,6 @@ public class BoardController {
     @PostMapping("/insertBoard")
     public String insertBoard(Board board) {
         board.setCreateDate(new Date());
-
         //꼭 알기!
         //클라이언트에서 board객체를 받아서 매개변수로 사용
         //[1]BoardService의 inserBoard메서드 실행 >

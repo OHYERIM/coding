@@ -67,6 +67,7 @@ select, input, textarea {
     cursor: pointer;
     text-decoration: none;
     color: #000;
+    background-color: lightgoldenrodyellow;
     transition: border-color .4s,box-shadow .4s,background .4s,color .4s,opacity .4s;
 }
 .btn:hover {
@@ -79,7 +80,8 @@ select, input, textarea {
     transition: transform .3s;
 }
 .btn.write {
-    background: #FCFCFC;
+    /*background: #FCFCFC;*/
+    background-color: darkseagreen;
 }
 .btn.write::before { content: '\E800' }
 .btn:hover::before {

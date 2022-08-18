@@ -9,7 +9,9 @@
 }
 
 #board thead {
-    background: linear-gradient(to bottom,#FFF 0%,#F9F9F9 100%);
+    /*background: linear-gradient(to bottom,#FFF 0%,#F9F9F9 100%);*/
+    background: linear-gradient(to bottom,cornsilk 100%, #F9F9F9 100%);
+
 }
 
 #board th, #board td {

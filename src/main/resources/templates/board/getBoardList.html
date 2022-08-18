@@ -81,7 +81,7 @@
     <thead>
     <tr>
         <th scope="col" class="seq">번호</th>
-<!--        <th scope="col" class="category">카테고리</th>-->
+        <th scope="col" class="category">카테고리</th>
         <th scope="col" class="title">제목</th>
         <th scope="col" class="content">내용</th>
         <th scope="col" class="writer">작성자</th>
@@ -92,7 +92,7 @@
     <tbody>
     <tr th:each="board : ${boardList}">
         <td class="seq" th:text="${board.seq}"></td>
-<!--        <td class="category" th:text="${board.category}"></td>-->
+        <td class="category" th:text="${board.category}"></td>
         <td class="title">
             <a th:href="@{/board/getBoard(seq=${board.seq})}">
                 <span th:text="${board.title}"></span>

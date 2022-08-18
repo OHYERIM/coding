@@ -125,8 +125,11 @@ public class MemberController {
         //클라이언트에서 ID/PW만 가져왔음, (시퀀스는 자동 생성)
         //createDate
         //updateDate 는 안가져옴 (필드값이 부족함)
-        member.setCreateDate(new Date());
-        member.setUpdateDate(new Date());
+
+        //2022.08.18 main에 EnableJpaAuditing을 선언해서 자동으로 가져올 수 있도록 하기 위해 날림
+//        member.setCreateDate(new Date());
+//        member.setUpdateDate(new Date());
+
         memberService.insertMember(member);
 //        return "index";   2022.08.16 수정
         return "redirect:/account/getAccountList";
