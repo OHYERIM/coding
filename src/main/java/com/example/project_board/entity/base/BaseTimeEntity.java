@@ -17,6 +17,7 @@ public abstract class BaseTimeEntity {
     @CreatedDate
     private Date createDate;
 
+
     @LastModifiedDate
     private Date updateDate;
 }
