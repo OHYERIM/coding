@@ -43,6 +43,7 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void updateBoard(Board board) {
         Board findBoard = boardRepo.findById(board.getSeq()).get();
+//        findBoard.setTitle(board.getCategory());
         findBoard.setTitle(board.getTitle());
         findBoard.setContent(board.getContent());
         boardRepo.save(findBoard);

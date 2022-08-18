@@ -72,7 +72,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/board.css">
-<!--    <link rel="stylesheet" href="/css/document.css">-->
+
     <title>게시 글 목록</title>
 </head>
 <body>
@@ -83,7 +83,7 @@
         <th scope="col" class="seq">번호</th>
 <!--        <th scope="col" class="category">카테고리</th>-->
         <th scope="col" class="title">제목</th>
-<!--        <th scope="col" class="content">내용</th>-->
+        <th scope="col" class="content">내용</th>
         <th scope="col" class="writer">작성자</th>
         <th scope="col" class="update">등록일</th>
         <th scope="col" class="cnt">조회수</th>
@@ -97,13 +97,13 @@
             <a th:href="@{/board/getBoard(seq=${board.seq})}">
                 <span th:text="${board.title}"></span>
                 <div class="summary">
-                    <div>요약입니다.</div>
+                    <div>click! 글읽기</div>
                 </div>
             </a>
         </td>
-<!--        <td class="content" th:text="${board.content}"></td>-->
+        <td class="content" th:text="${board.content}"></td>
         <td class="writer" th:text="${board.writer}"></td>
-        <td class="update" th:text="${board.createDate}"></td>
+        <td class="update" th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></td>
         <td class="cnt" th:text="${board.cnt}"></td>
     </tr>
     </tbody>
@@ -111,8 +111,9 @@
 <div class="btn_area clear">
     <div class="fr">
         <a class="btn write" th:href="@{/board/insertBoard}">글쓰기</a>
-        <a class="btn" href="http://localhost:9090">home</a>
     </div>
+</div>
+    <a class="btn" style="justify-content: center; width:50px;" href="http://localhost:9090">home</a>
 </div>
 </body>
 </html>

@@ -100,7 +100,7 @@ select, input, textarea {
 .btn.delete::after { content: '삭제' }
 .btn.delete::before { content: '\E802' }
 .row { display: flex }
-.row.between { justify-content: space-between }
+.row.between { justify-content: space-between}
 .row.gap { gap: 5px; }
 .row.column { flex-direction: column }
 .full { width: 100% }

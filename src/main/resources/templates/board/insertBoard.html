@@ -59,7 +59,7 @@
 
 <!--인국님-->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/common.css">
@@ -76,7 +76,6 @@
 <form id="write" th:action="${board == null ? 'insertBoard' : 'updateBoard'}" method="post">
     <input th:if="${board} != null" type="hidden" name="seq" th:value="${board.seq}">
     <div class="row">
-<!--        <input class="col category" name="category" type="text" th:placeholder="카테고리" th:value="${board == null ? '' : board.category}">-->
         <select class="col category">
             <option th:text="카테고리"></option>
             <option value="1">상품문의</option>

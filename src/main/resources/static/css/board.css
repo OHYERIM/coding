@@ -7,15 +7,18 @@
     max-width: 1200px;
     border-collapse: collapse;
 }
+
 #board thead {
     background: linear-gradient(to bottom,#FFF 0%,#F9F9F9 100%);
 }
+
 #board th, #board td {
     padding: 8px 12px;
     font-size: 11px;
     text-align: center;
     white-space: nowrap;
 }
+
 #board th {
     padding: 9px 12px;
     border-top: 1px solid #CCC;
@@ -23,10 +26,12 @@
     box-shadow: inset 0 -1px 0 #fff;
     color: #555;
 }
+
 #board tbody tr:hover {
     background: #F9F9F9;
     border-color: #DDD;
 }
+
 #board td {
     border-bottom: 1px solid #EEE;
     padding: 8px 12px;
@@ -34,33 +39,49 @@
     text-align: center;
     white-space: nowrap;
 }
+
+/*#board .category {*/
+/*    width: 100%;*/
+/*    padding-right: 6px;*/
+/*}*/
+
 #board .title {
     width: 100%;
     padding-right: 6px;
 }
+
+#board .content {
+    width: 100%;
+    padding-right: 6px;
+}
+
 #board .no_doc{
     clear: both;
     padding: 20px;
     text-align: center;
 }
+
 #board td.category {
     padding: 8px;
     color: #666;
 }
+
 #board td.title {
-    text-align: left;
+    text-align: center;
     font-size: 12px;
     white-space: normal;
     word-break: break-all;
     padding: 0;
     width: 100%;
 }
+
 #board td.title > a {
     display: block;
     position: relative;
     padding: 8px 12px 8px 6px;
     text-decoration: none;
 }
+
 #board .summary {
     display: none;
     position: absolute;
@@ -75,12 +96,14 @@
     white-space: nowrap;
     box-shadow: 1px 1px 3px rgb(0 0 0 / 20%);
 }
+
 #board .summary > div {
     font-weight: 400;
     line-height: 1.5em;
     max-width: 500px;
     padding: 6px;
 }
+
 #board .summary::after {
     content: '';
     display: block;
@@ -93,6 +116,7 @@
     background-image: url(../../../../../../subject_July_one/src/main/resources/static/img/edge.png);
     background-repeat: no-repeat;
 }
+
 #board td.title > a:hover .summary {
     display: block;
 }

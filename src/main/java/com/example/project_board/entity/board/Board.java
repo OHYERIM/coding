@@ -1,6 +1,7 @@
 package com.example.project_board.entity.board;
 
 import com.example.project_board.entity.base.BaseTimeEntity;
+import com.sun.istack.NotNull;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -19,7 +20,7 @@ public class Board extends BaseTimeEntity {
     @Id @GeneratedValue
     private Long seq;
 
-//    @Column(nullable = false)
+//    @Column(name = "category", nullable = false)
 //    private String category;
 
     //@Column은 title 필드값을 컬럼화할 때 길이와 null 입력 가능여부 옵션
@@ -33,6 +34,7 @@ public class Board extends BaseTimeEntity {
     @Column(nullable = false)
     @ColumnDefault("'no content'")
     private String content;
+
 
     //2022.08.18 BaseTimeEntity라는 추상클래스에서 상속을 받아 사용하기 위해 날린 것.
 //    //타입이 날짜
