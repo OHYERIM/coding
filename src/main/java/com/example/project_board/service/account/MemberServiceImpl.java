@@ -10,13 +10,13 @@ import java.util.List;
 @Service
 public class MemberServiceImpl implements MemberService{
     //서비스와 레파지토리와 연결됨
-//    private final MemberRepository memberRepo;
-    //이거랑
+
+    private final MemberRepository memberRepo;
+
     @Autowired
-    private MemberRepository memberRepo;
-//    protected MemberServiceImpl(MemberRepository memberRepo) {
-//        this.memberRepo = memberRepo;
-//    }   //이거 언제한거????
+//    private MemberRepository memberRepo;
+    protected MemberServiceImpl(MemberRepository memberRepo) {
+        this.memberRepo = memberRepo;}
 
     //22.08.16
     //public : 공개
@@ -63,6 +63,7 @@ public class MemberServiceImpl implements MemberService{
         //3. DB에 저장(덮어쓰기)
         //findBYId(), get() : 고유키 기준으로 튜플 전체 데이터 가져오기
         Member findMember = memberRepo.findById(member.getSeq()).get();
+        System.out.println(findMember.getEmail());
         //튜플 전체 내용중에 ID/email주소 수정 (setter)
         findMember.setId(member.getId());
 //        findMember.setPassword(member.getPassword());

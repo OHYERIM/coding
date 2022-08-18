@@ -1,64 +1,115 @@
+<!--예림-->
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <link rel="stylesheet" href="/css/getBoardList.css">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 style="font-family: Arial">게시글 목록</h1>-->
+<!--<table id="table_01" th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">-->
+<!--    <thead>-->
+<!--    <tr style="height: 21px">-->
+<!--        <th  width="100">번호</th>-->
+<!--        <th width="100">카테고리</th>-->
+<!--        <th  width="150">제목</th>-->
+<!--        <th  width="400">내용</th>-->
+<!--        <th  width="150">작성자</th>-->
+<!--        <th  width="150">등록일</th>-->
+<!--        <th  width="100">조회수</th>-->
+<!--        &lt;!&ndash;        <th bgcolor="orange" width="100">조회수</th>&ndash;&gt;-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    &lt;!&ndash;model에 있는 데이터를 타임리프는 html에 뿌려주게 되고, 순수한 html파일로 만들어서 톰캣에 전달&ndash;&gt;-->
+<!--    &lt;!&ndash;    each : for문&ndash;&gt;-->
+<!--    &lt;!&ndash;    모델에 있는 boardList 배열을 순회해서 board라는 객체를 하나씩 출력 (유사 : 향상된 for문&ndash;&gt;-->
+<!--    <tbody>-->
+<!--    <tr th:each="board :${boardList}">-->
+<!--        &lt;!&ndash;        <td th:text="${state.count}"></td>&ndash;&gt;-->
+<!--        <td th:text="${board.seq}"></td>-->
+<!--        &lt;!&ndash;-->
+<!--        a태그를 사용하여 링크를 만들고,-->
+<!--        @{/getBoard로 controller에 mapping 주소를 직시-->
+<!--        [HTML(클라이언트)]seq=${board.seq} 에서 [JAVA(서버)]@RequestParam으로 매개변수 전달-->
+<!--        seq(변수명) = ${board.seq}(HTML(타임리프)에서의 데이터(클라이언트)-->
+<!--        &ndash;&gt;-->
+<!--        <td th:text="${board.category}"></td>-->
+<!--        <td> <a th:href="@{/getBoard(-->
+<!--                                seq=${board.seq},-->
+<!--                                category=${board.category},-->
+<!--                                userId='userIdTeste',-->
+<!--                                userRole='userIdRole',-->
+<!--                                title=${board.title},-->
+<!--                                content=${board.content},-->
+<!--                                writer=${board.writer},-->
+<!--                                createDate=${board.createDate},-->
+<!--                                cnt=${board.cnt}-->
+<!--                                )}"-->
+<!--                th:text="${board.title}"></a></td>-->
+<!--        &lt;!&ndash;        <td th:text="${board.title}"></td>&ndash;&gt;-->
+
+<!--        <td th:text="${#strings.abbreviate(board.content,23)}"></td>-->
+<!--        <td th:text="${board.writer}"></td>-->
+<!--        &lt;!&ndash;-->
+<!--            dates.format = 날짜를 일정형식으로 바꿔주는 포맷팅-->
+<!--        &ndash;&gt;-->
+<!--        <td th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></td>-->
+<!--        &lt;!&ndash;        <td th:text="${board.createDate}"></td>&ndash;&gt;-->
+<!--        <td th:text="${board.cnt}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--<button class="w-btn-outline w-btn-green-outline" type="button"><a th:href="@{/insertBoard}">글등록</a></button>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--인국님-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/getBoardList.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
+<!--    <link rel="stylesheet" href="/css/document.css">-->
+    <title>게시 글 목록</title>
 </head>
 <body>
-<h1 style="font-family: Arial">게시글 목록</h1>
-<table id="table_01" th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
+<h1>게시글 목록</h1>
+<table id="board">
     <thead>
-    <tr style="height: 21px">
-        <th  width="100">번호</th>
-        <th width="100">카테고리</th>
-        <th  width="150">제목</th>
-        <th  width="400">내용</th>
-        <th  width="150">작성자</th>
-        <th  width="150">등록일</th>
-        <th  width="100">조회수</th>
-        <!--        <th bgcolor="orange" width="100">조회수</th>-->
+    <tr>
+        <th scope="col" class="seq">번호</th>
+<!--        <th scope="col" class="category">카테고리</th>-->
+        <th scope="col" class="title">제목</th>
+        <th scope="col" class="writer">작성자</th>
+        <th scope="col" class="update">등록일</th>
+        <th scope="col" class="cnt">조회수</th>
     </tr>
     </thead>
-    <!--model에 있는 데이터를 타임리프는 html에 뿌려주게 되고, 순수한 html파일로 만들어서 톰캣에 전달-->
-    <!--    each : for문-->
-    <!--    모델에 있는 boardList 배열을 순회해서 board라는 객체를 하나씩 출력 (유사 : 향상된 for문-->
     <tbody>
-    <tr th:each="board :${boardList}">
-        <!--        <td th:text="${state.count}"></td>-->
-        <td th:text="${board.seq}"></td>
-        <!--
-        a태그를 사용하여 링크를 만들고,
-        @{/getBoard로 controller에 mapping 주소를 직시
-        [HTML(클라이언트)]seq=${board.seq} 에서 [JAVA(서버)]@RequestParam으로 매개변수 전달
-        seq(변수명) = ${board.seq}(HTML(타임리프)에서의 데이터(클라이언트)
-        -->
-        <td th:text="${board.category}"></td>
-        <td> <a th:href="@{/getBoard(
-                                seq=${board.seq},
-                                category=${board.category},
-                                userId='userIdTeste',
-                                userRole='userIdRole',
-                                title=${board.title},
-                                content=${board.content},
-                                writer=${board.writer},
-                                createDate=${board.createDate},
-                                cnt=${board.cnt}
-                                )}"
-                th:text="${board.title}"></a></td>
-        <!--        <td th:text="${board.title}"></td>-->
-
-        <td th:text="${#strings.abbreviate(board.content,23)}"></td>
-        <td th:text="${board.writer}"></td>
-        <!--
-            dates.format = 날짜를 일정형식으로 바꿔주는 포맷팅
-        -->
-        <td th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></td>
-        <!--        <td th:text="${board.createDate}"></td>-->
-        <td th:text="${board.cnt}"></td>
+    <tr th:each="board : ${boardList}">
+        <td class="seq" th:text="${board.seq}"></td>
+<!--        <td class="category" th:text="${board.category}"></td>-->
+        <td class="title">
+            <a th:href="@{/board/getBoard(seq=${board.seq})}">
+                <span th:text="${board.title}"></span>
+                <div class="summary">
+                    <div>요약입니다.</div>
+                </div>
+            </a>
+        </td>
+        <td class="writer" th:text="${board.writer}"></td>
+        <td class="update" th:text="${board.createDate}"></td>
+        <td class="cnt" th:text="${board.cnt}"></td>
     </tr>
     </tbody>
 </table>
-<button class="w-btn-outline w-btn-green-outline" type="button"><a th:href="@{/insertBoard}">글등록</a></button>
+<div class="btn_area clear">
+    <div class="fr">
+        <a class="btn write" th:href="@{/board/insertBoard}">쓰기</a>
+    </div>
+</div>
 </body>
 </html>
