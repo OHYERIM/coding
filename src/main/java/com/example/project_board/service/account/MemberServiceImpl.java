@@ -88,4 +88,38 @@ public class MemberServiceImpl implements MemberService{
     public void deleteMember(Member member) {
         memberRepo.deleteById(member.getSeq());
     }
+
+    @Override
+    public boolean booleanSearchUserByEmail(Member member) {
+        return false;
+    }
+
+    @Override
+    public boolean booleanSearchUserById(Member member) {
+        return false;
+    }
+
+    @Override
+    public boolean booleanSearchUserByPassword(Member member) {
+        return false;
+    }
+
+    @Override
+    public List<Member> getMemberListEmailSecurityStarByMemberList(List<Member> memberList) {
+        return null;
+    }
+    @Override
+    public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
+        return null;
+    }
+
+    @Override
+    public List<Member> getBoardListAllBoardListByMemberId(Member member){
+        return null;
+    }
+
+    @Override
+    public boolean booleanMemberIdEqualsBoardWriterByMember(Member member){
+        return false;
+    }
 }
