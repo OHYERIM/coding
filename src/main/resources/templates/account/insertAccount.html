@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
 </head>
 <body>
+<h1 th:align="center">회원가입</h1>
 <form th:action="@{/account/insertAccount}" method="post">
     <table th:align="center" border="1" cellpadding="0" cellspacing="0">
         <tr>
-            <td bgcolor="orange" th:text="ID" width="80"></td>
+            <td bgcolor="#fafad2" th:text="ID" width="100" text></td>
             <td><input type="text" name="id" th:placeholder="ID" size="50"></td>
         </tr>
         <tr>
-            <td bgcolor="orange" th:text="Password"></td>
+            <td bgcolor="#fafad2" th:text="Password"></td>
             <td><input type="text" name="password" th:placeholder="PASSWORD" size="50"></td>
         </tr>
         <tr>
-            <td bgcolor="orange" th:text="email"></td>
+            <td bgcolor="#fafad2" th:text="email"></td>
             <td><input type="text" name="email" th:placeholder="email" size="50"></td>
         </tr>
         <tr>
-            <td colspan="2" align="center">
-                <input type="submit" value="가입">
-                <button><a href="http://localhost:9090">메인홈</a></button>
+            <td colspan="2" align="right" height="30px" style="padding-right: 10px">
+                <input type="submit" value="가입" style="background-color:darkseagreen; color: #f2f2f2">
             </td>
         </tr>
         <!--
@@ -30,5 +32,8 @@
          -->
     </table>
 </form>
+    <div style="margin-top: 20px">
+    <a class="btn" align="center" style="justify-content: center; width:50px;" href="http://localhost:9090">home</a>
+    </div>
 </body>
 </html>

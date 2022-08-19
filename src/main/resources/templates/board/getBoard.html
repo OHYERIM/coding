@@ -82,7 +82,7 @@
 <body>
 <h1 th:align="center">게시글 상세</h1>
 <main>
-    <div class="row">
+    <div class="row" >
     <div class="category" th:text="${board.category}">카테고리</div>
     </div>
     <div class="row">
@@ -90,7 +90,7 @@
     </div>
     <div class="row between">
         <span class="name fl">작성자</span>
-        <div class="name fr" th:text="${board.writer}"></div>
+        <span class="name fr" th:text="${board.writer}"></span>
         <div class="fr">
             <div class="date fl" th:text="${#dates.format(board.createDate, 'yyyy-MM-dd')}"></div>
                 <span class="cnt fl">조회수</span>

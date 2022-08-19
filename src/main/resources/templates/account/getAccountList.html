@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>getAccountList</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
 </head>
 <body th:align="center">
+<h1 th:align="center">회원목록</h1>
 <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0" th:width="700">
     <tr>
-        <th bgcolor="orange" border="1px" width="100">번호</th>
-        <th bgcolor="orange" width="100">ID</th>
-        <!--      <th bgcolor="orange" width="100">PASSWORD</th>-->
-        <th bgcolor="orange" width="100">email</th>
-        <th bgcolor="orange" width="100">상세정보</th>
+        <th bgcolor="#fafad2" width="50">번호</th>
+        <th bgcolor="#fafad2" width="100">ID</th>
+        <th bgcolor="#fafad2" width="100">Email</th>
+        <th bgcolor="#fafad2" width="100">회원정보</th>
+        <th bgcolor="#fafad2" width="100">비고</th>
     </tr>
+
     <tr th:each="member : ${memberList}">  <!-- 컨트롤러에서 추가-->
         <td th:text="${member.seq}"></td>
         <td><a th:text="${member.id}"></a></td>
@@ -24,19 +28,21 @@
                     절대 경로일 경우 template에서 시작하며, 상대경로이면 getAccountList페이지가 있는 폴더에서 시작
                     /를 앞에 붙인 경우    : 절대경로
                     /를 앞에 안 붙인 경우 : 상대경로 -->
-        <td>
+        <td align="center">
             <a th:href="@{/account/getAccount(seq=${member.seq})}">
-                <button>상세정보</button></a>
+                <button style="background-color:darkseagreen; color: #f2f2f2">상세보기</button></a>
         </td>
         <!--      <td>-->
         <!--          <button><a th:href="@{/account/deleteAccount(seq=${member.seq})}">t삭제</a></button>-->
         <!--      </td>-->
-        <td>
+        <td align="center">
             <a th:href="@{/account/deleteAccount(seq=${member.seq})}">
-                <button>삭제</button></a>
+                <button style="background-color:thistle; color: #f2f2f2">삭제</button></a>
         </td>
     </tr>
-    <button><a href="http://localhost:9090">메인홈</a></button>
 </table>
+<div style="margin-top: 20px">
+    <a class="btn" align="center" style="justify-content: center; width:50px;" href="http://localhost:9090">home</a>
+</div>
 </body>
 </html>
