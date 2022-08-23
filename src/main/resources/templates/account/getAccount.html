@@ -14,30 +14,37 @@
     <input name="seq" type="hidden" th:value="${member.seq}">
     <table th:align="center" border="1" th:cellpadding="0" th:cellspacing="0">
         <tr>
-            <td bgcolor="#fafad2" th:text="번호" width="80"></td>
+            <td bgcolor="#5F0080" style="color: #f2f2f2" th:text="번호" width="80"></td>
             <td th:text="${member.seq}"></td>
         </tr>
         <!-- 왜 ${member.~} 로 쓰는지 알기-->
         <tr>
-            <td bgcolor="#fafad2" th:text="ID" width="80"></td>
+            <td bgcolor="#5F0080" style="color: #f2f2f2" th:text="ID" width="80"></td>
             <!--
                 [서버]에서 java의 데이터를 [클라이언트]html문서에 값을 할당해주는 문법 ${title}
             -->
             <td><input name="id" type="text" th:value="${member.id}"></td>
         </tr>
         <tr>
-            <td bgcolor="#fafad2" th:text="email"></td>
+            <td bgcolor="#5F0080" style="color: #f2f2f2" th:text="email"></td>
             <td><input name="email" th:value="${member.email}"></td>
         </tr>
-<!--        <tr>-->
-<!--            <td colspan="2" align="center"></td>-->
-<!--            <input type="submit" value="회원정보 수정">-->
-<!--        </tr>-->
     </table>
-    <div style="margin-top: 20px" align="center">
-        <input type="submit" value="회원정보 수정" style="background-color:lightgrey; color: #000000;">
+
+    <div class="row between" style="margin-top: 20px" align="center">
+            <a class="btn" align="center" style="justify-content: center; width:50px; background-color:#5F0080; color: #f2f2f2; text-shadow: none"
+               th:href="@{/board/selectBoard(id=${member.id})}">회원게시글보기</a>
+        <input class= "btn" type="submit" value="회원정보 수정" style="background-color:lightgoldenrodyellow; color: #000000; font-family: '나눔손글씨 힘내라는 말보단'">
     </div>
 </form>
+
+<!--get방식으로 member.id 파라미터를 갖고 server에 이동-->
+<!--타임리프 문법으로는 member기준으로 필드값을 출력하고 있으므로 selectBoard에 파라미터 값을 board.member.id로 넘겨줄 경우,
+    그에 따른 member와 board와의 관계를 타임리프에서 인지하고 클라이언트에서 서버로 넘어갈 때, entity가 board.member.id를 인지하고 객체화 시켜야하는 문제가 있음-->
+<!--        <div style="margin-top: 20px">-->
+<!--            <a class="btn" align="center" style="justify-content: center; width:50px; background-color:#e6e6fa; color: #000000;"-->
+<!--               th:href="@{/board/selectBoard(id=${member.id})}">회원게시글보기</a>-->
+<!--        </div>-->
         <div style="margin-top: 20px">
         <a class="btn" align="center" style="justify-content: center; width:50px;" href="http://localhost:9090">home</a>
     </div>

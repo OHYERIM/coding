@@ -3,7 +3,7 @@
 <head>
     <title>회원정보 찾기</title>
     <meta charset="UTF-8">
-    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">-->
+    <link rel="stylesheet" href="/css/common.css">
 </head>
 <body th:align="center">
 <h1>회원정보 찾기</h1>
@@ -14,6 +14,7 @@
     <!--      <td bgcolor="orange" th:text="번호" width="80"></td>-->
     <td th:text="${member.seq}"></td>
     <td th:text="${member.id}"></td>
+    <td th:text="${member.password}"></td>
     <td th:text="${member.email}"></td>
     </tr>
 </table>

@@ -1,5 +1,6 @@
 package com.example.project_board.service.board;
 
+import com.example.project_board.entity.account.Member;
 import com.example.project_board.entity.board.Board;
 import com.example.project_board.repository.board.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,14 +13,13 @@ import java.util.List;
 @Service
 public class BoardServiceImpl implements BoardService {
 
-//    private final BoardRepository boardRepo;
-//
-//    @Autowired
-//    protected BoardServiceImpl(BoardRepository boardRepo) {this.boardRepo = boardRepo;}
+    private final BoardRepository boardRepo;
 
+    //순환참조 중단
     @Autowired
-    private BoardRepository boardRepo;
-    //BoardRepository에 있는 DB와 연동하여 기능하는 것을 명시
+    protected BoardServiceImpl(BoardRepository boardRepo) {
+        this.boardRepo = boardRepo;
+    }
 
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 findAll메서드를 통해서
     //전체 조회
@@ -32,8 +32,6 @@ public class BoardServiceImpl implements BoardService {
     //DB에 저장 (저장하는 SQL문 만들어서 실행)
     @Override
     public void insertBoard(Board board) {
-        System.out.println("들어감");
-        System.out.println(board);
         boardRepo.save(board);
     }
 
@@ -53,7 +51,35 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public void deleteBoard(Board board) {
-        boardRepo.deleteById(board.getSeq());
+    public void deleteBoard(Board board) { boardRepo.deleteById(board.getSeq());
+    }
+
+//    @Override
+//    public void insertComment(Comments comments) {
+//
+//    }
+    @Override
+    public boolean booleanMemberIdEqualsBoardWriterByMember(Member member) {
+        return false;
+    }
+    
+    @Override
+    public List<Board> getBoardListByMemberId(Member member) {
+        return boardRepo.findAllByMemberIdEqualsBoardWriter(member.getId());
+    }
+
+    @Override
+    public List<String> doNounsAnalysis(List<Board> boardList) {
+        return null;
+    }
+
+    @Override
+    public List<Board> getAutoKeywordBoardList(List<String> keyword) {
+        return null;
+    }
+
+    @Override
+    public List<Board> getBoardListSortColumnBoardList(List<Board> boardList) {
+        return null;
     }
 }

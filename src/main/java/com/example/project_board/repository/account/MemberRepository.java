@@ -23,7 +23,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //(Id는 중복 가능한 구조애서) Id값의 일부분만 매개변수로 넣고, 아이디 생성날짜가 가장 최신인 것
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstById(String id_1);
-
-
 //    List<Member> findMemberWhereIdAndROWNUL1(String id);
 }

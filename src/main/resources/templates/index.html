@@ -7,19 +7,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="/css/common.css">
 </head>
 <body>
-<p>hello world</p>
-<a href="/board/getBoardList">게시글목록</a>
-<a href="/account/insertAccount">회원가입</a>
-<a href="/account/getAccountList">회원목록</a>
-<hr>
-<p th:text="${msg}"></p>
-<hr>
-<h1>회원가입</h1>
+<h1 align="center" style="color: #5F0080; font-family: 'Book Antiqua'">Market Berry</h1>
+    <div class="row fr gap">
+    <a href="/board/getBoardList" style="text-decoration: none">게시글목록</a>
+    <a href="/account/insertAccount" style="text-decoration: none; color: #5F0080">회원가입</a>
+    <a href="/account/getAccountList" style="text-decoration: none">회원목록</a>
+    </div>
+<!--<hr>-->
+<!--<p th:text="${msg}"></p>-->
+<!--<hr>-->
+<h4>상품검색</h4>
 <form method="POST" action="/account">
-    <input type="text" name="id1" th:value="${id2}" />
-    <input type="submit" value="Click" />
+    <input type="text" name="id1" th:value="${id2}" /> &nbsp;
+    <input class="btn fr gap" style="background-color: #5F0080; text-shadow: none; color: #f2f2f2" type="submit" value="Search" />
 </form>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.project_board.service.account;
 
+import com.example.project_board.encrypt.EncryptAES256;
 import com.example.project_board.entity.account.Member;
 import com.example.project_board.repository.account.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,10 +13,11 @@ public class MemberServiceImpl implements MemberService{
     //서비스와 레파지토리와 연결됨
 
     private final MemberRepository memberRepo;
+    private final EncryptAES256 encryptAES256;
 
     @Autowired
-//    private MemberRepository memberRepo;
-    protected MemberServiceImpl(MemberRepository memberRepo) {
+    protected MemberServiceImpl(MemberRepository memberRepo, EncryptAES256 encryptAES256) {
+        this.encryptAES256 = encryptAES256;
         this.memberRepo = memberRepo;}
 
     //22.08.16
@@ -110,16 +112,23 @@ public class MemberServiceImpl implements MemberService{
     }
     @Override
     public List<Member> getMemberListEncodingByMemberList(List<Member> memberList) {
-        return null;
+        for(Member member : memberList) {
+            try {
+                 member.setPassword(encryptAES256.encrypt(member.getPassword()));
+            }catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return memberList;
     }
-
     @Override
-    public List<Member> getBoardListAllBoardListByMemberId(Member member){
-        return null;
-    }
-
-    @Override
-    public boolean booleanMemberIdEqualsBoardWriterByMember(Member member){
+    public boolean booleanAfter30DaysChangePasswordByMemberUpdateDate(Member member) {
         return false;
     }
+
+    @Override
+    public boolean booleanChangedPassword3CheckByMemberPassword(Member member) {
+        return false;
+    }
+
 }

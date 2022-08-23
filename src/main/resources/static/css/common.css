@@ -5,9 +5,13 @@
     url('./font/fontello.woff?77671009') format('woff'),
     url('./font/fontello.ttf?77671009') format('truetype'),
     url('./font/fontello.svg?77671009#fontello') format('svg');
+    url('./font/fontello.svg?77671009#fontello') format('svg');
+    font-family: '나눔손글씨 힘내라는 말보단';
+    src: url('./font/나눔손글씨 힘내라는 말보단.ttf');
     font-weight: normal;
     font-style: normal;
 }
+
 body {
     margin: 0 auto;
     display: flex;
@@ -18,6 +22,7 @@ body {
     min-width: 760px;
     max-width: 1000px;
     box-sizing: border-box;
+    font-family: '나눔손글씨 힘내라는 말보단';
 }
 a:active, a:visited {
     color: inherit;
@@ -69,6 +74,7 @@ select, input, textarea {
     color: #000;
     background-color: lightgoldenrodyellow;
     transition: border-color .4s,box-shadow .4s,background .4s,color .4s,opacity .4s;
+    font-family: Arial;
 }
 .btn:hover {
     border-color: #AAA;
@@ -76,14 +82,14 @@ select, input, textarea {
 }
 .btn::before {
     content: '';
-    font-family: "fontello";
     transition: transform .3s;
 }
 .btn.write {
     /*background: #FCFCFC;*/
-    background-color: darkseagreen;
+    background-color: #5F0080;
 }
-.btn.write::before { content: '\E800' }
+.btn.write::before { content: '\E800';
+}
 .btn:hover::before {
     transform: rotate(360deg);
 }
@@ -92,19 +98,25 @@ select, input, textarea {
     color: white;
     text-shadow: 0 1px 0 black;
 }
-.btn.back::after { content: '뒤로가기' }
-.btn.back::before { content: '\0073' }
+.btn.back::after { content: '뒤로가기';
+}
+.btn.back::before { content: '\0073';
+}
 .btn.delete {
     background-color: orangered;
     color: white;
     text-shadow: 0 1px 0 black;
 }
-.btn.delete::after { content: '삭제' }
-.btn.delete::before { content: '\E802' }
+.btn.delete::after { content: '삭제';
+}
+.btn.delete::before { content: '\E802';
+}
 .row { display: flex }
 .row.between { justify-content: space-between}
 .row.gap { gap: 5px; }
 .row.column { flex-direction: column }
 .full { width: 100% }
-.btn.confirm::after { content: '확인' }
-.btn.confirm::before { content: '\E803' }
+.btn.confirm::after { content: '확인';
+}
+.btn.confirm::before { content: '\E803';
+}

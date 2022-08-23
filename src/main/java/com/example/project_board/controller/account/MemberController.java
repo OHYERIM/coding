@@ -55,6 +55,17 @@ public class MemberController {
     //public : 전부 공개
     //String : 이 메서드가 실행 완료되면 최종적으로 리턴하는 타입(HTML 파일명을 찾기 위해)
 
+//    @GetMapping("/getAccountList")
+//    public String getAccountList(Model model){
+//        //model : 컨트롤러에서 작업한 결과물을 HTML에 전달학 위한 매개체
+//        //addAttribute : key/value으로 데이터를 저장하는 메서드
+//        //attributeName(key) : 뒤에 있는 value를 호출하기 위한 문자열(key)
+//        //memberService.getMemberList() : @Autowired로 선언된 MemberService 클래스를 호출하여
+//        //getMemberList() 메서드 실행
+//        model.addAttribute("memberList", memberService.getMemberList());
+//        return "/account/getAccountList";
+//    }
+
     @GetMapping("/getAccountList")
     public String getAccountList(Model model){
         //model : 컨트롤러에서 작업한 결과물을 HTML에 전달학 위한 매개체
@@ -62,7 +73,9 @@ public class MemberController {
         //attributeName(key) : 뒤에 있는 value를 호출하기 위한 문자열(key)
         //memberService.getMemberList() : @Autowired로 선언된 MemberService 클래스를 호출하여
         //getMemberList() 메서드 실행
-        model.addAttribute("memberList", memberService.getMemberList());
+        model.addAttribute("memberList",
+//                memberService.getMemberListEncodingByMemberList(
+                        memberService.getMemberList());
         return "/account/getAccountList";
     }
 
@@ -76,17 +89,12 @@ public class MemberController {
 
     @PostMapping("/updateAccount")
     public String updateAccount (Member member){
-        System.out.println(member.getEmail());
-        System.out.println(member.getId());
-        System.out.println(member.getSeq());
         memberService.updateMember(member);
         return "redirect:/account/getAccountList";
     }
 
     @GetMapping("/deleteAccount")
     public String deleteAccount (Member member){
-        System.out.println("-----delete");
-        System.out.println(member.getSeq());
         memberService.deleteMember(member);
         return "redirect:/account/getAccountList";
     }

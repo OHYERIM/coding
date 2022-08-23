@@ -1,5 +1,6 @@
 package com.example.project_board.controller.board;
 
+import com.example.project_board.entity.account.Member;
 import com.example.project_board.entity.board.Board;
 import com.example.project_board.service.board.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +18,28 @@ import java.util.List;
 @RequestMapping(path = "/board")
 public class BoardController {
 
-    @Autowired
-    private BoardService boardService;
 
+    private final BoardService boardService;
+
+    @Autowired
+    protected BoardController(BoardService boardService){this.boardService = boardService;}
     //BoardService의 getBoardList메서드 실행 > BoardRepository(CrudRepository).findAll()를 통해서 (JPA번역)
     //DB의 데이터 불러오기(테이블전체) (SQL)
     @GetMapping("/getBoardList")
     public String getBoardList(Model model, Board board) {
-        model.addAttribute("boardList", boardService.getBoardList());
+        List<Board> boardList = boardService.getBoardList();
+        model.addAttribute("boardList",boardList);
         return "/board/getBoardList";
     }
 
     @GetMapping("/insertBoard")
-    public String insertBoardView() {
-
+    public String insertBoard() {
         return "/board/insertBoard";
     }
+//    public String insertBoardView() {
+//
+//        return "/board/insertBoard";
+//    }
 
     @PostMapping("/insertBoard")
     public String insertBoard(Board board) {
@@ -70,6 +77,20 @@ public class BoardController {
     public String deleteBoard(Board board) {
         boardService.deleteBoard(board);
         return "redirect:/board/getBoardList";
+    }
+
+    //2022.08.22
+    @GetMapping("/selectBoard")
+    public String selectBoard(Member member, Model model) {
+        //board.getId()는 클라이언트에서 가져옴
+        //@Service에 board를 인자값으로 넣고, 메소드를 실행
+        boardService.getBoardListByMemberId(member);
+        model.addAttribute("boardList",boardService.getBoardListByMemberId((member)));
+
+        //return 해줘야 되는것은? 회원이 작성한 게시글리스트(List<Board>)
+        //어디에 해줘야 될까? [페이지 또는 Controller mapping] -> HTML에다가 뿌려주면 끝이다. Controller에 가면 메소드가 실행되면서 다른 결과물을 리턴받기 때문이다.
+        //그러면 어느 HTML로 가야하는가? 객체지향은 재활용성이 중요한 요인 중 하나이기 때문에 HTML 중에서 재사용 할만한 것을 먼저 찾은 후 새로 만들기에 대한 고민을 해야한다. -> getBoardList
+        return "/board/getBoardList";
     }
 }
 

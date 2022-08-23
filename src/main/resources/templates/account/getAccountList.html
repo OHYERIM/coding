@@ -13,6 +13,7 @@
         <th bgcolor="#fafad2" width="50">번호</th>
         <th bgcolor="#fafad2" width="100">ID</th>
         <th bgcolor="#fafad2" width="100">Email</th>
+        <th bgcolor="#fafad2" width="100">비밀번호</th>
         <th bgcolor="#fafad2" width="100">회원정보</th>
         <th bgcolor="#fafad2" width="100">비고</th>
     </tr>
@@ -20,9 +21,9 @@
     <tr th:each="member : ${memberList}">  <!-- 컨트롤러에서 추가-->
         <td th:text="${member.seq}"></td>
         <td><a th:text="${member.id}"></a></td>
-        <!--      <td th:text="${member.password}"></td>-->
+              <td th:text="${member.password}"></td>
         <td th:text="${member.email}"></td>
-        <!--      <td th:text="${member.passsword}"></td>-->
+<!--        <td th:text="${member.password}"></td>-->
         <!--      account/getAccountList에서 get Account 호출할 때
                     기본 시작점이 templates이기 떄문에
                     절대 경로일 경우 template에서 시작하며, 상대경로이면 getAccountList페이지가 있는 폴더에서 시작
@@ -30,14 +31,14 @@
                     /를 앞에 안 붙인 경우 : 상대경로 -->
         <td align="center">
             <a th:href="@{/account/getAccount(seq=${member.seq})}">
-                <button style="background-color:darkseagreen; color: #f2f2f2">상세보기</button></a>
+                <button style="background-color: #666666; color: #f2f2f2; font-family: '나눔손글씨 힘내라는 말보단'">상세보기</button></a>
         </td>
         <!--      <td>-->
         <!--          <button><a th:href="@{/account/deleteAccount(seq=${member.seq})}">t삭제</a></button>-->
         <!--      </td>-->
         <td align="center">
             <a th:href="@{/account/deleteAccount(seq=${member.seq})}">
-                <button style="background-color:thistle; color: #f2f2f2">삭제</button></a>
+                <button style="background-color: #5F0080; color: #f2f2f2; font-family: '나눔손글씨 힘내라는 말보단'">삭제</button></a>
         </td>
     </tr>
 </table>
