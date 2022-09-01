@@ -23,5 +23,18 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     //(Id는 중복 가능한 구조애서) Id값의 일부분만 매개변수로 넣고, 아이디 생성날짜가 가장 최신인 것
     @Query(value = "select m from Member m where m.id = :id_1 order by m.createDate DESC")
     Member findFirstById(String id_1);
-//    List<Member> findMemberWhereIdAndROWNUL1(String id);
+
+    @Query(value = "SELECT m FROM Member m JOIN fetch m.boardList WHERE m.id = :memberId")
+    List<Member> findAllByMemberIdEqualsBoardWriter(String memberId);
+
+    //JPA는 메소드 이름으로 DB에 조회하는 기능
+    //JPQL: JPA를 통해 JPA에서 제공하는 쿼리문으로 조회 (단, ENtity 기준으로만 조회 가능)
+    //NativeQuery: 일반 SQL문으로 DB를 조회하며 보통 DTO단위로 리턴(ENtity단위로 리턴X)
+    //jpql containing (SQL문의 like처럼 유사한 단어를 찾는 메소드명)
+
+    List<Member> findByEmailContaining(String email);
+    //*findallby로 받을 경우에는 list로 써야한다. 여러개로 받아야하기 때문에
+
+    //jpql contains
+
 }

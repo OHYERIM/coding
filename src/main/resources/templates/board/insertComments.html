@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
+</head>
+<body>
+<form th:action="@{/board/insertComments}" method="post">
+    <header>
+        <h3>후기 게시판</h3>
+    </header>
+        <input th:if="${board} != null" type="hidden" name="seq" th:value="${board.seq}">
+        <div class="row gap">
+            <select name="category" class="col category">
+                <option th:text="별점"></option>
+                <option value="1">★</option>
+                <option value="2">★★</option>
+                <option value="3">★★★</option>
+                <option value="4">★★★★</option>
+                <option value="5">★★★★★</option>
+            </select>
+            <input class="col title" name="title" type="text" th:placeholder="제목" th:value="${board == null ? '' : board.title}">
+        </div>
+        <textarea class="content" name="content" th:rows="20" th:placeholder="내용" th:text="${board == null ? '' : board.content}"></textarea>
+        <div class="row between">
+            <label th:if="${board == null}" class="row label writer"><input name="writer" type="text"></label>
+            <div th:unless="${board == null}" class="row label writer" th:text="${board.writer}"></div>
+            <div class="row between">
+                <a class="btn back fl" th:href="@{/board/getCommentsList}"></a>
+                <button class="btn write fr" style="text-shadow: none; color: #f2f2f2" th:classappend="${board} != null ? 'update'" type="submit" onclick="this.submit()">등록</button>
+            </div>
+        </div>
+    </form>
+    </body>
+</html>

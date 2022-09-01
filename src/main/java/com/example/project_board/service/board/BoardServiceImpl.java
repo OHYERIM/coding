@@ -2,7 +2,11 @@ package com.example.project_board.service.board;
 
 import com.example.project_board.entity.account.Member;
 import com.example.project_board.entity.board.Board;
+import com.example.project_board.entity.board.Comments;
+import com.example.project_board.entity.data.FileUploadEntity;
 import com.example.project_board.repository.board.BoardRepository;
+import com.example.project_board.repository.board.CommentsRepository;
+import com.example.project_board.repository.board.FileUploadInfoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +18,18 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepo;
+    private final CommentsRepository commentsRepository;
+
+    private final FileUploadInfoRepository fileUploadInfoRepository;
 
     //순환참조 중단
     @Autowired
-    protected BoardServiceImpl(BoardRepository boardRepo) {
+    protected BoardServiceImpl(BoardRepository boardRepo,
+                               CommentsRepository commentsRepository,
+                               FileUploadInfoRepository fileUploadInfoRepository) {
+        this.commentsRepository = commentsRepository;
         this.boardRepo = boardRepo;
+        this.fileUploadInfoRepository = fileUploadInfoRepository;
     }
 
     //클라이언트에서 받아온 Board객체의 데이터를 BoardRepository의 상속받은 CrudRepository의 findAll메서드를 통해서
@@ -54,7 +65,12 @@ public class BoardServiceImpl implements BoardService {
     public void deleteBoard(Board board) { boardRepo.deleteById(board.getSeq());
     }
 
-//    @Override
+    @Override
+    public void insertComments(Comments comments) {
+
+    }
+
+    //    @Override
 //    public void insertComment(Comments comments) {
 //
 //    }
@@ -81,5 +97,26 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<Board> getBoardListSortColumnBoardList(List<Board> boardList) {
         return null;
+    }
+
+    @Override
+    public List<Board> getBoardListAllBoardListByMemberId(Member member) {
+        return null;
+    }
+
+    @Override
+    public List<List<Object>> getBoardAndMemberUserBoard() {
+        return null;
+    }
+
+
+    @Override
+    public List<Comments> getAllComments(Comments comments) {
+        return commentsRepository.findCommentsByBoard_seq(comments.getBoard_seq());
+    }
+
+    @Override
+    public void insertFileUploadEntity(FileUploadEntity fileUploadEntity) {
+        fileUploadInfoRepository.save(fileUploadEntity);
     }
 }

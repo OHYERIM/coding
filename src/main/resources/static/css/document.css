@@ -7,7 +7,7 @@ main > .row:first-of-type {
     border-top: 1px solid #CCC;
     border-bottom: 1px solid #CCC;
     background: #FCFCFC;
-    line-height: 1.5em;
+    line-height: 0.5em;
 }
 main > .row:nth-of-type(2) {
     border-bottom: 1px solid #EEE;
@@ -41,4 +41,4 @@ article.content {
     color: white;
     text-shadow: 0 1px 0 black;
 }
-.btn.write::after { content: '수정' }
+.btn.write::after { content: '수정';}

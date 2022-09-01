@@ -44,7 +44,7 @@ public class Board extends BaseTimeEntity {
     //member를 필드에 선언
     //참조키가 어디인지 선언해줘야함 (member 기본키가 board의 참조키로 기본적으로 할당되어있음)
     //member의 id는 기본키가 아니기 때문에 수정을 해줘야함 -> board의 writer는 member의 id와 연관되어 있고 잠조키로 id로 연결되어있다.
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "id", referencedColumnName = "id")
     private Member member;
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/board.css">
+    <link rel="stylesheet" href="/css/comment.css">
+
+    <title>게시 글 목록</title>
+</head>
+<body>
+<h1>게시글 목록</h1>
+<table id="board">
+    <thead>
+    <tr>
+        <th scope="col" class="seq">번호</th>
+        <th scope="col" class="title">제목</th>
+        <th scope="col" class="writer">작성자</th>
+        <th scope="col" class="comment_name">후기</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board : ${CommentsList}">
+        <td class="seq" th:text="${comments.seq}"></td>
+        <td class="title" th:text="${comments.title}"></td>
+        <td class="writer" th:text="${comments.writer}"></td>
+        <td class="comments" th:text="${comments.comments}"></td>
+    </tr>
+    </tbody>
+</table>
+<div class="btn_area clear">
+    <div class="fr">
+        <a class="btn write" style="color: #f2f2f2; text-shadow: none" th:href="@{/board/insertBoard}">후기등록</a>
+    </div>
+</div>
+    <a class="btn" style="justify-content: center; width:50px;" href="http://localhost:9090">home</a>
+</body>
+</html>

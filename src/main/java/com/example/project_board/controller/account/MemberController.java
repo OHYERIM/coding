@@ -1,6 +1,7 @@
 package com.example.project_board.controller.account;
 
 import com.example.project_board.entity.account.Member;
+import com.example.project_board.entity.customDto.CustomDtoExample;
 import com.example.project_board.service.account.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,8 +75,8 @@ public class MemberController {
         //memberService.getMemberList() : @Autowired로 선언된 MemberService 클래스를 호출하여
         //getMemberList() 메서드 실행
         model.addAttribute("memberList",
-//                memberService.getMemberListEncodingByMemberList(
-                        memberService.getMemberList());
+                memberService.getMemberListEncodingByMemberList(
+                        memberService.getMemberList()));
         return "/account/getAccountList";
     }
 
@@ -155,5 +156,12 @@ public class MemberController {
         model.addAttribute("member",
                 memberService.getMemberWhereIdOrEmail(member.getEmail(), member.getId()));
         return "/account/resultAccount";
+    }
+
+
+    @GetMapping("/inittest")
+    public String inittest(Member member, Model model) {
+        CustomDtoExample listCheck = (CustomDtoExample) memberService.getCustomDtoByMemberId(member.getId());
+        return "/board/getBoardList";
     }
 }

@@ -30,13 +30,13 @@
             <td><input name="email" th:value="${member.email}"></td>
         </tr>
     </table>
-
     <div class="row between" style="margin-top: 20px" align="center">
-            <a class="btn" align="center" style="justify-content: center; width:50px; background-color:#5F0080; color: #f2f2f2; text-shadow: none"
+            <a class="btn" align="center" style="justify-content: center; width:50px; background-color:#5F0080; color: #f2f2f2; text-shadow: none; font-family: '나눔손글씨 힘내라는 말보단'"
                th:href="@{/board/selectBoard(id=${member.id})}">회원게시글보기</a>
         <input class= "btn" type="submit" value="회원정보 수정" style="background-color:lightgoldenrodyellow; color: #000000; font-family: '나눔손글씨 힘내라는 말보단'">
     </div>
 </form>
+
 
 <!--get방식으로 member.id 파라미터를 갖고 server에 이동-->
 <!--타임리프 문법으로는 member기준으로 필드값을 출력하고 있으므로 selectBoard에 파라미터 값을 board.member.id로 넘겨줄 경우,

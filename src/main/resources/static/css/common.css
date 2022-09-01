@@ -1,11 +1,4 @@
 @font-face {
-    font-family: 'fontello';
-    src: url('./font/fontello.eot?77671009');
-    src: url('./font/fontello.eot?77671009#iefix') format('embedded-opentype'),
-    url('./font/fontello.woff?77671009') format('woff'),
-    url('./font/fontello.ttf?77671009') format('truetype'),
-    url('./font/fontello.svg?77671009#fontello') format('svg');
-    url('./font/fontello.svg?77671009#fontello') format('svg');
     font-family: '나눔손글씨 힘내라는 말보단';
     src: url('./font/나눔손글씨 힘내라는 말보단.ttf');
     font-weight: normal;
@@ -74,7 +67,6 @@ select, input, textarea {
     color: #000;
     background-color: lightgoldenrodyellow;
     transition: border-color .4s,box-shadow .4s,background .4s,color .4s,opacity .4s;
-    font-family: Arial;
 }
 .btn:hover {
     border-color: #AAA;
@@ -85,10 +77,10 @@ select, input, textarea {
     transition: transform .3s;
 }
 .btn.write {
-    /*background: #FCFCFC;*/
     background-color: #5F0080;
 }
 .btn.write::before { content: '\E800';
+
 }
 .btn:hover::before {
     transform: rotate(360deg);

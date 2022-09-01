@@ -2,7 +2,9 @@ package com.example.project_board.service.account;
 
 import com.example.project_board.encrypt.EncryptAES256;
 import com.example.project_board.entity.account.Member;
+import com.example.project_board.entity.customDto.CustomDtoExample;
 import com.example.project_board.repository.account.MemberRepository;
+import com.example.project_board.repository.customRepository.CustomDtoExampleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +16,13 @@ public class MemberServiceImpl implements MemberService{
 
     private final MemberRepository memberRepo;
     private final EncryptAES256 encryptAES256;
+//    private CustomDtoExampleRepository customDtoExampleRepository;
 
     @Autowired
     protected MemberServiceImpl(MemberRepository memberRepo, EncryptAES256 encryptAES256) {
         this.encryptAES256 = encryptAES256;
         this.memberRepo = memberRepo;}
+//        this.customDtoExampleRepository = customDtoExampleRepository;
 
     //22.08.16
     //public : 공개
@@ -130,5 +134,20 @@ public class MemberServiceImpl implements MemberService{
     public boolean booleanChangedPassword3CheckByMemberPassword(Member member) {
         return false;
     }
+
+    @Override
+    public List<Member> getMemberListAndBoardListByMemberId(String memberId) {
+        return memberRepo.findAllByMemberIdEqualsBoardWriter(memberId);
+    }
+
+    @Override
+    public List<CustomDtoExample> getCustomDtoByMemberId(String memberId) {
+        return null;
+    }
+
+//    @Override
+//    public List<CustomDtoExample> getCustomDtoByMemberId(String memberId) {
+//        return customDtoExampleRepository.findExample(memberId);
+//    }
 
 }

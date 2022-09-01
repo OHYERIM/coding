@@ -13,23 +13,34 @@ import java.util.ArrayList;
 
 //@Entity JPA가 이 객체를 기준으로 table을 만들어야 한다고 선언
 @ToString
-@Entity
+@Builder
 @Getter
 @Setter
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Entity
+
 public class Member extends BaseTimeEntity implements Serializable { //Serializable라는 구현체를 사용하는 이유는?.. @OneToMany를 사용하기 위해서는 구현체가 필요 (@OneToMany에서 백엔드를 저장하기 위해)
 
-    //SELECT [*컬럼명=객체의 필드] FROM TABLE_NAME=객체;
-    //CREATE TABLE (
-    //        seq NUMBER primary key,
-    //        id varchar2(40) NOT NULL
-    //)
-    //JPA : 객체에 맞춰서 SQL문으로 바꿔주는 것(번역)
+    //2022.08.25 주석내용
+     //*영속화
+    //JVM밖에서도 객체를 (영원히)저장
+    //Commit, flush, persist를 포괄하는 내용
+    //SQL(MyBatis)는 DB틀에 맞춘 mapper라고 정의한다면
+    //JPA는 객체(Entity, 튜플)단위로 데이터베이스에 저장하는 개념을 영속화 한다고 정의
+
+    //*IDENTITY: DB에 필드값을 저장 후에 기본키를 생성함
+    //Entity가 영속상태가 되기 위해서는 식별자가 필수.
+    //*Sequence: DB(Oracle)Sequence 함수 기능을 활용하여 생성
+    //*Table: Seq(시퀀스)를 정보를 갖고 있는 테ㅣ블을 만들고 seq컬럼값을 저장 뒤에 불러온다.
+    //여타 위에 전략과 달리 임의의 seq table을 만들기 때문에 table 성능이 좋지 않을 경우,( 튜닝X )
+    //속도적인 문제를 야기할 수 있다.
+
     //@Id : table을 만들 떄, 테이블의 튜플(row)를 식별할 수 있는 기본키
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long seq;
 
